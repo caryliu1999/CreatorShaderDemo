@@ -4,7 +4,7 @@ const {ccclass, property} = cc._decorator;
 export default class SceneManager extends cc.Component {
     public static SceneList = {
         "GamePlay": ["PointLight", "Smoke", "Water"],
-        "Texture": ["Blur", "Fluxay", "PostProcess"],
+        "Texture": ["Blur", "Fluxay", "PostTexture", "PostRenderTexture"],
         "Weather": ["Cloud", "Rain", "Snow", "Stormy"],
     }
 
