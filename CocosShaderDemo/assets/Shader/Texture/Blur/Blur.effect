@@ -1,0 +1,77 @@
+// Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.  
+
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      blendState:
+        targets:
+        - blend: true
+      rasterizerState:
+        cullMode: none
+      properties:
+        texture: {value: white }
+        num: { value: 0.02 }
+}%
+
+
+CCProgram vs %{
+  precision highp float;
+
+  #include <cc-global>
+  #include <cc-local>
+
+  in vec3 a_position;
+  in vec4 a_color;
+  out vec4 v_color;
+
+  in vec2 a_uv0;
+  out vec2 v_uv0;
+
+  void main () {
+    vec4 pos = vec4(a_position, 1);
+    pos = cc_matViewProj * pos;
+    v_uv0 = a_uv0;
+    v_color = a_color;
+
+    gl_Position = pos;
+  }
+}%
+
+
+CCProgram fs %{
+  precision highp float;
+
+  #define REPEAT 5.
+  uniform sampler2D texture;
+  uniform NUM {
+    float num;
+  }
+
+  in vec2 v_uv0;
+  in vec4 v_color;
+
+  vec4 draw(vec2 uv) {
+    return v_color * texture2D(texture,uv).rgba; 
+  }
+  float grid(float var, float size) {
+    return floor(var*size)/size;
+  }
+  float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+  }
+  void main() {
+    vec4 blurred = vec4(0.);
+    for (float i = 0.; i < REPEAT; i++) { 
+        vec2 q = vec2(cos(degrees((i/REPEAT)*360.)),sin(degrees((i/REPEAT)*360.))) * (rand(vec2(i,v_uv0.x+v_uv0.y))+num); 
+        vec2 uv2 = v_uv0+(q*num);
+        blurred += draw(uv2)/2.;
+        q = vec2(cos(degrees((i/REPEAT)*360.)),sin(degrees((i/REPEAT)*360.))) * (rand(vec2(i+2.,v_uv0.x+v_uv0.y+24.))+num); 
+        uv2 = v_uv0+(q*num);
+        blurred += draw(uv2)/2.;
+    }
+    blurred /= REPEAT;
+    gl_FragColor = vec4(blurred);
+  }
+}%

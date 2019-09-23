@@ -1,0 +1,60 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      blendState:
+        targets:
+        - blend: true
+      rasterizerState:
+        cullMode: none
+      properties:
+        mouse: { value: [0.5, 0.5] }
+}%
+
+
+CCProgram vs %{
+  precision highp float;
+
+  #include <cc-global>
+  #include <cc-local>
+
+  in vec3 a_position;
+
+  in vec4 a_color;
+  out vec4 v_color;
+
+  in vec2 a_uv0;
+  out vec2 v_uv0;
+
+  void main () {
+    vec4 pos = vec4(a_position, 1);
+    pos = cc_matViewProj * pos;
+
+    v_uv0 = a_uv0;
+    v_color = a_color;
+
+    gl_Position = pos;
+  }
+}%
+
+
+CCProgram fs %{
+  precision highp float;
+  
+  in vec4 v_color;
+  in vec2 v_uv0;
+
+  uniform LIGHT {
+    vec2 mouse;
+  }
+
+  void main () {
+    float radius = 0.3;
+
+    float distance  = length( mouse - v_uv0 );
+    float intensity = min( distance, radius )/radius;
+
+    gl_FragColor = vec4(.0,.0,.0,1.) * vec4(intensity);
+  }
+}%

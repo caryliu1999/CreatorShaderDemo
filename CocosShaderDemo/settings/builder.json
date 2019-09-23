@@ -1,0 +1,32 @@
+{
+  "title": "CocosShaderDemo",
+  "packageName": "org.cocos2d.CocosShaderDemo",
+  "startScene": "a1f9e536-eb62-4d32-a9df-0aa398b5f430",
+  "excludeScenes": [],
+  "includeSDKBox": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "webOrientation": "auto",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mergeStartScene": false,
+  "optimizeHotUpdate": false,
+  "md5Cache": false,
+  "encryptJs": true,
+  "xxteaKey": "aac8112a-2240-4a",
+  "zipCompressJs": true,
+  "fb-instant-games": {},
+  "android-instant": {
+    "REMOTE_SERVER_ROOT": "",
+    "host": "",
+    "pathPattern": "",
+    "recordPath": "",
+    "scheme": "https",
+    "skipRecord": false
+  },
+  "appBundle": false
+}

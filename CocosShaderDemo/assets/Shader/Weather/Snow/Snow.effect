@@ -1,0 +1,81 @@
+// Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.  
+
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      blendState:
+        targets:
+        - blend: true
+      rasterizerState:
+        cullMode: none
+      properties:
+        time: { value: 0.5 }
+}%
+
+
+CCProgram vs %{
+  precision highp float;
+
+  #include <cc-global>
+  #include <cc-local>
+
+  in vec3 a_position;
+  in vec4 a_color;
+  out vec4 v_color;
+
+  in vec2 a_uv0;
+  out vec2 v_uv0;
+
+  void main () {
+    vec4 pos = vec4(a_position, 1);
+
+    pos = cc_matViewProj * pos;
+
+    v_uv0 = a_uv0;
+    v_color = a_color;
+
+    gl_Position = pos;
+  }
+}%
+
+// by baldand
+
+CCProgram fs %{
+  precision highp float;
+  
+  #define LAYERS 50
+	#define DEPTH .5
+	#define WIDTH .3
+	#define SPEED .6
+
+  in vec4 v_color;
+  in vec2 v_uv0;
+
+  uniform TIME {
+    float time;
+  }
+
+  void main () {
+    const mat3 p = mat3(13.323122,23.5112,21.71123,21.1212,28.7312,11.9312,21.8112,14.7212,61.3934);
+    vec2 uv = v_uv0.xy;
+    vec3 acc = vec3(0.0);
+    float dof = 5.*sin(time*.1);
+    for (int i=0;i<LAYERS;i++) {
+      float fi = float(i);
+      vec2 q = uv*(1.+fi*DEPTH);
+      q += vec2(q.y*(WIDTH*mod(fi*7.238917,1.)-WIDTH*.5),SPEED*time/(1.+fi*DEPTH*.03));
+      vec3 n = vec3(floor(q),31.189+fi);
+      vec3 m = floor(n)*.00001 + fract(n);
+      vec3 mp = (31415.9+m)/fract(p*m);
+      vec3 r = fract(mp);
+      vec2 s = abs(mod(q,1.)-.5+.9*r.xy-.45);
+      s += .01*abs(2.*fract(10.*q.yx)-1.); 
+      float d = .6*max(s.x-s.y,s.x+s.y)+max(s.x,s.y)-.01;
+      float edge = .005+.05*min(.5*abs(fi-5.-dof),1.);
+      acc += vec3(smoothstep(edge,-edge,d)*(r.x/(1.+.02*fi*DEPTH)));
+	  }
+	  gl_FragColor = vec4(vec3(acc),1.0);
+  }
+}%
