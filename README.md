@@ -54,10 +54,32 @@ CustomAssembler must override methods init, updateRenderData and fillBuffers.
 
 Transplant some 2D Shaders to learn the new material system.
 
-![预览](./start.jpg)
+天气相关：
 
-![预览](./cloud.jpg)
+滚动背景
 
-![预览](./rain.jpg)
+![预览](./res/start.jpg)
 
-![预览](./snow.jpg)
+云
+
+![预览](./res/cloud.jpg)
+
+雨
+
+![预览](./res/rain.jpg)
+
+雪
+
+![预览](./res/snow.jpg)
+
+图片相关：
+
+使用RenderTexture进行屏幕后处理：
+
+![预览](./res/post-process.jpg)
+
+GamePlay:
+
+点光源：
+
+![预览](./res/point-light.jpg)
