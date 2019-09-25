@@ -10185,7 +10185,11 @@ declare namespace cc {
 		static renderEngine: any;		
 		/** !#en The total draw call count in last rendered frame.
 		!#zh 上一次渲染帧所提交的渲染批次总数。 */
-		static drawCalls: number;	
+		static drawCalls: number;
+
+		static _handle: any;
+
+		static InputAssembler: any;
 	}	
 	/** !#en The module provides utilities for working with file and directory paths
 	!#zh 用于处理文件与目录的路径的模块 */
