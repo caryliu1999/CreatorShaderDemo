@@ -1,6 +1,6 @@
 # CreatorShaderDemo
 
-Shader demo based on the material system of Cocos Creator.
+Shader demo based on the material system of Cocos Creator. The master branch corresponds to CocosCreator v2.2.0. Please use v2.3.0 branch for CocosCreator v2.3.0.
 
 ## CustomRenderComponent & CustomAssembler
 
