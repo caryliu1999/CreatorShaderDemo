@@ -17,13 +17,13 @@ export default class CustomRenderComponent extends cc.RenderComponent {
 
     //override
     _activateMaterial () {
-        let material = this.sharedMaterials[0];
+        let material = this.getMaterial(0);
         if (!material) {
             this.disableRender();
             return;
         }
         
-        material = cc.Material.getInstantiatedMaterial(material, this);
+        material = cc.MaterialVariant.create(material, this);
         this.setMaterial(0, material);
         this.markForRender(true);
     }

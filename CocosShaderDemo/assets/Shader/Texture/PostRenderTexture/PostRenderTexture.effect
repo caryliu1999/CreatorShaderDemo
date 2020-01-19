@@ -56,7 +56,7 @@ CCProgram fs %{
 
   uniform POST {
     float num;
-  }
+  };
 
   vec4 draw(vec2 uv) {
     return v_color * texture2D(texture,uv).rgba; 

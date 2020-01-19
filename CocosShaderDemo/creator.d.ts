@@ -7512,7 +7512,7 @@ declare namespace cc {
 	export class RenderComponent extends Component {		
 		/** !#en The materials used by this render component.
 		!#zh 渲染组件使用的材质。 */
-		sharedMaterials: Material[];		
+		getMaterial(0): Material[];		
 		/**
 		!#en Get the material by index.
 		!#zh 根据指定索引获取材质

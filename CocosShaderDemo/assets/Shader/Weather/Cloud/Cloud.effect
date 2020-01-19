@@ -92,7 +92,7 @@ CCProgram fs %{
   uniform CLOUD {
     vec2 resolution;
     float time;
-  }
+  };
 
   void main() {
       vec2 p = v_uv0.xy;

@@ -21,7 +21,7 @@ export default class Rain extends cc.Component {
     _material = null;
 
     onEnable() {
-        this._material = this.sprite.sharedMaterials[0];
+        this._material = this.sprite.getMaterial(0);
     }
     update(dt) {
         if (this.node.active && this._material) {

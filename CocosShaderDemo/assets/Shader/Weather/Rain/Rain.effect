@@ -50,7 +50,7 @@ CCProgram fs %{
   uniform RESOLUTION {
     vec2 resolution;
     float time; 
-  }
+  };
 
   float Hash (float x)
   {

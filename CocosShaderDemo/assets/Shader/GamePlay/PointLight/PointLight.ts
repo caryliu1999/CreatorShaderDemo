@@ -15,7 +15,7 @@ export default class PointLight extends cc.Component {
     _mouse = cc.v2(0, 0);
 
     onEnable () {
-        this._material = this.component.sharedMaterials[0];
+        this._material = this.component.getMaterial(0);
         this.node.on(cc.Node.EventType.MOUSE_DOWN, this.mouseDown, this);
         this.node.on(cc.Node.EventType.MOUSE_MOVE, this.mouseMove, this);
         this.node.on(cc.Node.EventType.MOUSE_LEAVE, this.mouseLeave, this);

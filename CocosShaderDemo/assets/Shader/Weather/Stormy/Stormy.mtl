@@ -1,11 +1,10 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "Stormy",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "dc7bb9f6-ca84-4ffd-b1c2-58b34044352f"
   },
-  "_defines": {},
-  "_props": {}
+  "_techniqueData": {}
 }

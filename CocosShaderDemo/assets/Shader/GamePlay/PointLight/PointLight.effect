@@ -47,7 +47,7 @@ CCProgram fs %{
 
   uniform LIGHT {
     vec2 mouse;
-  }
+  };
 
   void main () {
     float radius = 0.3;

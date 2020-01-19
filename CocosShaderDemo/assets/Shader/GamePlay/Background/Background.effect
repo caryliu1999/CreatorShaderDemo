@@ -65,7 +65,7 @@ CCProgram fs %{
 
   uniform TIME {
     float time;
-  }
+  };
   //----------------------------------------------------------------------------------------
   //  1 out, 1 in...
   float hash11(float p) {
@@ -95,8 +95,10 @@ CCProgram fs %{
       float left = mix(top.x, bottom.x, y);
       float right = mix(top.y, bottom.y, y);
       
+      float bz = bottom.z;
+      float tz = top.z;
       float horizontal = B(left, right, uv.x, blur);
-      float vertical = B(bottom.z, top.z, uv.y, blur);
+      float vertical = B(bz, tz, uv.y, blur);
       return horizontal*vertical;
   }
 

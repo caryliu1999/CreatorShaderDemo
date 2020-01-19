@@ -1,13 +1,16 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "Background",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "80b5f74f-192f-4f13-ad5c-335680485398"
   },
-  "_defines": {
-    "USE_GL_OES_STANDARD": true
-  },
-  "_props": {}
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_GL_OES_STANDARD": true
+      }
+    }
+  }
 }

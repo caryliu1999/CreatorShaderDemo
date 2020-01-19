@@ -17,7 +17,7 @@ export default class SpriteShaderUpdate extends cc.Component {
     set component (comp) {
         this._component = comp;
         if (this._component) {
-            this._material = this._component.sharedMaterials[0];
+            this._material = this._component.getMaterial(0);
         }
     }
 
@@ -32,7 +32,7 @@ export default class SpriteShaderUpdate extends cc.Component {
 
     onEnable() {
         if (this.component) {
-            this._material = this.component.sharedMaterials[0];
+            this._material = this.component.getMaterial(0);
         }
     }
 

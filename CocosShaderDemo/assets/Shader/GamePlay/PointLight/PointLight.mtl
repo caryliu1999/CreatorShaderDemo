@@ -1,17 +1,20 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "PointLight",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "2c31fe42-b967-492f-826c-98b4aee16c4a"
   },
-  "_defines": {},
-  "_props": {
-    "mouse": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+  "_techniqueData": {
+    "0": {
+      "props": {
+        "mouse": {
+          "__type__": "cc.Vec2",
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
     }
   }
 }

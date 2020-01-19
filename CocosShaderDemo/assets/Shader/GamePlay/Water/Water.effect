@@ -53,7 +53,7 @@ CCProgram fs %{
 
   uniform TIME {
     float time;
-  }
+  };
 
   float waterHighlight(vec2 p, float time, float foaminess)
   {

@@ -48,7 +48,7 @@ CCProgram fs %{
 
   uniform TIME {
     float time;
-  }
+  };
 
   vec3 sphere = vec3(0, 0, 2);
   float sphere_size = 1.3;

@@ -54,7 +54,7 @@ CCProgram fs %{
 
   uniform TIME {
     float time;
-  }
+  };
 
   void main () {
     float time = time * .5+5.;

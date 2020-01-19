@@ -30,7 +30,7 @@ export default class PostRenderTexture extends cc.Component {
     }
 
     initMaterial () {
-        this.material = this.sprite.sharedMaterials[0];
+        this.material = this.sprite.getMaterial(0);
 
         if (!this.texture) {
             this.texture = new cc.RenderTexture();

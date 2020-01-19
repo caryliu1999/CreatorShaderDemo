@@ -1,13 +1,16 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "Fluxay",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "d8d4e3a8-e6dc-408d-bba5-ab3e7df20cc2"
   },
-  "_defines": {},
-  "_props": {
-    "time": 0.5
+  "_techniqueData": {
+    "0": {
+      "props": {
+        "time": 0.5
+      }
+    }
   }
 }

@@ -55,7 +55,7 @@ CCProgram fs %{
 
   uniform TIME {
     float time;
-  }
+  };
 
   void main () {
     const mat3 p = mat3(13.323122,23.5112,21.71123,21.1212,28.7312,11.9312,21.8112,14.7212,61.3934);

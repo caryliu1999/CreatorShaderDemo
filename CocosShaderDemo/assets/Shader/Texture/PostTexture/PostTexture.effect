@@ -52,7 +52,7 @@ CCProgram fs %{
 
   uniform LOD {
     float time;
-  }
+  };
     
   void main () {
     vec2 q = v_uv0.xy;
